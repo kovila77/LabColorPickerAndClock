@@ -20,6 +20,8 @@ namespace LabColorPickerAndClock
     /// </summary>
     public partial class ColorPicker : UserControl
     {
+        public Color Color { get { return Color.FromRgb(ttb0.Value, ttb1.Value, ttb2.Value); } }
+
         public InputType InputType
         {
             get { return ttb0.ColorTypeInput; }
@@ -45,6 +47,11 @@ namespace LabColorPickerAndClock
         private void RadioButtonHex_Checked(object sender, RoutedEventArgs e)
         {
             ttb0.ColorTypeInput = ttb1.ColorTypeInput = ttb2.ColorTypeInput = InputType.Hex;
+        }
+
+        private void OnColorChanged(object sender, TextChangedEventArgs e)
+        {
+            RecColorElem.Fill = new SolidColorBrush(Color);
         }
     }
 }

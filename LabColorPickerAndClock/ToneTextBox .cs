@@ -12,8 +12,8 @@ namespace LabColorPickerAndClock
 {
     public class ToneTextBox : TextBox
     {
-        private const int MAX_COLOR_VAL = 255;
-        private const int MIN_COLOR_VAL = 0;
+        //private const int MAX_COLOR_VAL = 255;
+        //private const int MIN_COLOR_VAL = 0;
         private const string AllovedSymbolsHex = "0123456789abcdef";
         private InputType _inputType = InputType.Dec;
 
@@ -27,43 +27,37 @@ namespace LabColorPickerAndClock
                     if (value == InputType.Dec)
                     {
                         _inputType = InputType.Dec;
-                        this.Text = int.Parse(this.Text, NumberStyles.AllowHexSpecifier | NumberStyles.HexNumber).ToString();
+                        this.Text = byte.Parse(this.Text, NumberStyles.AllowHexSpecifier | NumberStyles.HexNumber).ToString();
                     }
                     else
                     {
                         _inputType = InputType.Hex;
-                        this.Text = Convert.ToString(int.Parse(this.Text), 16);
+                        this.Text = Convert.ToString(byte.Parse(this.Text), 16);
                     }
                 }
             }
         }
 
-        public uint Value
+        public byte Value
         {
-            get { return uint.Parse(this.Text); }
+            get { return _inputType == InputType.Dec ? byte.Parse(this.Text) : byte.Parse(this.Text, NumberStyles.AllowHexSpecifier | NumberStyles.HexNumber); }
             set
             {
-                if (value > MAX_COLOR_VAL)
+                if (_inputType == InputType.Dec)
                 {
-                    this.Text = _inputType == InputType.Dec ? MAX_COLOR_VAL.ToString() : Convert.ToString(MAX_COLOR_VAL, 16);
+                    this.Text = value.ToString();
                 }
                 else
                 {
-                    if (_inputType == InputType.Dec)
-                    {
-                        this.Text = value.ToString();
-                    }
-                    else
-                    {
-                        this.Text = Convert.ToString(value, 16);
-                    }
+                    this.Text = Convert.ToString(value, 16);
                 }
+
             }
         }
 
         public ToneTextBox()
         {
-            this.Text = "0";
+            this.Text = byte.MinValue.ToString();
         }
 
         protected override void OnTextChanged(TextChangedEventArgs e)
@@ -77,16 +71,16 @@ namespace LabColorPickerAndClock
                 }
             }
 
-            int x;
-            if (!NumberTryParse(this.Text, out x) || x > MAX_COLOR_VAL)
+            byte x;
+            if (!NumberTryParse(this.Text, out x))
             {
                 if (this.Text.Length > 0)
                 {
-                    this.Text = _inputType == InputType.Dec ? MAX_COLOR_VAL.ToString() : Convert.ToString(MAX_COLOR_VAL, 16);
+                    this.Text = _inputType == InputType.Dec ? byte.MaxValue.ToString() : Convert.ToString(byte.MaxValue, 16);
                 }
                 else
                 {
-                    this.Text = MIN_COLOR_VAL.ToString();
+                    this.Text = byte.MinValue.ToString();
                 }
             }
             base.OnTextChanged(e);
@@ -104,15 +98,15 @@ namespace LabColorPickerAndClock
             }
         }
 
-        private bool NumberTryParse(string str, out int x)
+        private bool NumberTryParse(string str, out byte x)
         {
             if (this._inputType == InputType.Dec)
             {
-                return int.TryParse(str, out x);
+                return byte.TryParse(str, out x);
             }
             else
             {
-                return int.TryParse(str, NumberStyles.AllowHexSpecifier | NumberStyles.HexNumber, CultureInfo.InvariantCulture, out x);
+                return byte.TryParse(str, NumberStyles.AllowHexSpecifier | NumberStyles.HexNumber, CultureInfo.InvariantCulture, out x);
             }
         }
     }
