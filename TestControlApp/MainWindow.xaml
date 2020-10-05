@@ -8,8 +8,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
-        <LabColorPickerAndClock:ColorPicker Margin="45,143,309,143"   />
+        <Rectangle Fill="Brown" />
+        <StackPanel Orientation="Vertical">
+            <LabColorPickerAndClock:UserControl1> </LabColorPickerAndClock:UserControl1>
+            <LabColorPickerAndClock:ColorPicker  />
+        </StackPanel>
 
     </Grid>
 </Window>
