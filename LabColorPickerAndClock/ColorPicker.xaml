@@ -5,34 +5,37 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LabColorPickerAndClock"
              mc:Ignorable="d" Height="120" Width="245">
-    <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="120"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical">
-            <Grid Margin="0,5,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="60"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" Grid.Column="0">Красный</Label>
-                <local:ToneTextBox x:Name="ttb0" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5"  Width="50" HorizontalAlignment="Left" TextChanged="OnTextChanged"></local:ToneTextBox>
-                <Label Grid.Row="1" Grid.Column="0">Зелёный</Label>
-                <local:ToneTextBox x:Name="ttb1" Grid.Row="1" Grid.Column="1"  Margin="5,5,5,5" Width="50" HorizontalAlignment="Left" TextChanged="OnTextChanged"></local:ToneTextBox>
-                <Label Grid.Row="2" Grid.Column="0">Синий</Label>
-                <local:ToneTextBox x:Name="ttb2" Grid.Row="2" Grid.Column="1" Margin="5,5,5,5" Width="50" HorizontalAlignment="Left" TextChanged="OnTextChanged"/>
+    <Grid>
+        <Rectangle Fill="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"></Rectangle>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical">
+                <Grid Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0">Красный</Label>
+                    <local:ToneTextBox x:Name="ttb0" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5"  Width="50" HorizontalAlignment="Left" TextChanged="OnTextChanged"></local:ToneTextBox>
+                    <Label Grid.Row="1" Grid.Column="0">Зелёный</Label>
+                    <local:ToneTextBox x:Name="ttb1" Grid.Row="1" Grid.Column="1"  Margin="5,5,5,5" Width="50" HorizontalAlignment="Left" TextChanged="OnTextChanged"></local:ToneTextBox>
+                    <Label Grid.Row="2" Grid.Column="0">Синий</Label>
+                    <local:ToneTextBox x:Name="ttb2" Grid.Row="2" Grid.Column="1" Margin="5,5,5,5" Width="50" HorizontalAlignment="Left" TextChanged="OnTextChanged"/>
 
-                <RadioButton GroupName="ColorType" Grid.Row="3" Grid.Column="0" Content="Dec" Margin="5" IsChecked="True" Checked="RadioButtonDec_Checked"></RadioButton>
-                <RadioButton GroupName="ColorType" Grid.Row="3"  Grid.Column="1" Content="Hex" Margin="5" Checked="RadioButtonHex_Checked"></RadioButton>
-            </Grid>
-        </StackPanel>
-        <Rectangle x:Name="RecColorElem" Margin="5,5,5,5" Grid.Column="1" Fill="Red" Height="110" VerticalAlignment="Top"  />
+                    <RadioButton GroupName="ColorType" Grid.Row="3" Grid.Column="0" Content="Dec" Margin="5" IsChecked="True" Checked="RadioButtonDec_Checked"></RadioButton>
+                    <RadioButton GroupName="ColorType" Grid.Row="3"  Grid.Column="1" Content="Hex" Margin="5" Checked="RadioButtonHex_Checked"></RadioButton>
+                </Grid>
+            </StackPanel>
+            <Rectangle x:Name="RecColorElem" Margin="5,5,5,5" Grid.Column="1" Fill="Red" Height="110" VerticalAlignment="Top"  />
+        </Grid>
     </Grid>
 </UserControl>

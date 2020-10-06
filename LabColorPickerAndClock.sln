@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabColorPicker", "LabColorP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestControlApp", "TestControlApp\TestControlApp.csproj", "{545CE366-3FFE-4001-B252-33436E5A5447}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomClock", "CustomClock\CustomClock.csproj", "{600B3B60-87F7-4D8A-A60D-A5CD44C569B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{545CE366-3FFE-4001-B252-33436E5A5447}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{545CE366-3FFE-4001-B252-33436E5A5447}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{545CE366-3FFE-4001-B252-33436E5A5447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{600B3B60-87F7-4D8A-A60D-A5CD44C569B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{600B3B60-87F7-4D8A-A60D-A5CD44C569B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{600B3B60-87F7-4D8A-A60D-A5CD44C569B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{600B3B60-87F7-4D8A-A60D-A5CD44C569B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
