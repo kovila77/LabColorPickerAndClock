@@ -10,8 +10,8 @@
     <Grid>
         <Rectangle Fill="Brown" />
         <StackPanel Orientation="Vertical">
-            <LabColorPickerAndClock:UserControl1> </LabColorPickerAndClock:UserControl1>
-            <LabColorPickerAndClock:ColorPicker  />
+            <LabColorPickerAndClock:ColorPicker Color="#FFBD8B8B"/>
+            <Rectangle Fill="Brown" Height="100"/>
         </StackPanel>
 
     </Grid>

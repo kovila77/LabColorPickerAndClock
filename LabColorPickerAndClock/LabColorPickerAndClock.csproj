@@ -62,6 +62,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorChangedEventArgs.cs" />
+    <Compile Include="ColorChangedEventHandler.cs" />
     <Compile Include="InputType.cs" />
     <Compile Include="ToneTextBox .cs" />
     <Compile Include="ColorPicker.xaml.cs">

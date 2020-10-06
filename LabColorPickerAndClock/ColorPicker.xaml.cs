@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,23 @@ namespace LabColorPickerAndClock
     /// </summary>
     public partial class ColorPicker : UserControl
     {
-        public Color Color { get { return Color.FromRgb(ttb0.Value, ttb1.Value, ttb2.Value); } }
+        public Color Color
+        {
+            get
+            {
+                return Color.FromRgb(ttb0.Value, ttb1.Value, ttb2.Value);
+            }
+            set
+            {
+                ttb0.Text = value.R.ToString();
+                ttb1.Text = value.G.ToString();
+                ttb2.Text = value.B.ToString();
+                RecColorElem.Fill = new SolidColorBrush(Color);
+                OnColorChanged();
+            }
+        }
+
+        public event ColorChangedEventHandler ColorChanged;
 
         public InputType InputType
         {
@@ -37,6 +54,12 @@ namespace LabColorPickerAndClock
         public ColorPicker()
         {
             InitializeComponent();
+            this.Color = Color.FromRgb(0, 0, 0);
+        }
+
+        protected virtual void OnColorChanged()
+        {
+            ColorChanged?.Invoke(this, new ColorChangedEventArgs(Color));
         }
 
         private void RadioButtonDec_Checked(object sender, RoutedEventArgs e)
@@ -49,9 +72,10 @@ namespace LabColorPickerAndClock
             ttb0.ColorTypeInput = ttb1.ColorTypeInput = ttb2.ColorTypeInput = InputType.Hex;
         }
 
-        private void OnColorChanged(object sender, TextChangedEventArgs e)
+        private void OnTextChanged(object sender, TextChangedEventArgs e)
         {
             RecColorElem.Fill = new SolidColorBrush(Color);
+            OnColorChanged();
         }
     }
 }
