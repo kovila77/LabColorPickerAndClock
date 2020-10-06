@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabColorPickerAndClock", "LabColorPickerAndClock\LabColorPickerAndClock.csproj", "{B9DB04DE-9061-4E24-9711-DB7B8E0A7434}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabColorPicker", "LabColorPickerAndClock\LabColorPicker.csproj", "{B9DB04DE-9061-4E24-9711-DB7B8E0A7434}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestControlApp", "TestControlApp\TestControlApp.csproj", "{545CE366-3FFE-4001-B252-33436E5A5447}"
 EndProject

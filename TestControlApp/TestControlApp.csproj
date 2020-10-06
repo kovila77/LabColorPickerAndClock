@@ -95,9 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LabColorPickerAndClock\LabColorPickerAndClock.csproj">
+    <ProjectReference Include="..\LabColorPickerAndClock\LabColorPicker.csproj">
       <Project>{B9DB04DE-9061-4E24-9711-DB7B8E0A7434}</Project>
-      <Name>LabColorPickerAndClock</Name>
+      <Name>LabColorPicker</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
