@@ -7,12 +7,14 @@
         xmlns:LabColorPickerAndClock="clr-namespace:LabColorPickerAndClock;assembly=LabColorPickerAndClock" x:Class="TestControlApp.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <!--<Window.DataContext>
+        <local1:MainWindowViewModel/>
+    </Window.DataContext>-->
     <Grid>
-        <Rectangle Fill="Brown" />
         <StackPanel Orientation="Vertical">
-            <LabColorPickerAndClock:ColorPicker Color="#FFBD8B8B"/>
-            <Rectangle Fill="Brown" Height="100"/>
+            <LabColorPickerAndClock:ColorPicker x:Name="colorPicker" Color="#FFBD8B8B" ColorChanged="colorPicker_ColorChanged"/>
+            <!--Some rectangle to check change of color-->
+            <Rectangle Fill="#FFBD8B8B" x:Name="someRectangle" Height="100" Width="100"/>
         </StackPanel>
-
     </Grid>
 </Window>

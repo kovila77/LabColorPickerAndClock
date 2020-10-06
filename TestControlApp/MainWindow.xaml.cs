@@ -1,6 +1,8 @@
-﻿using System;
+﻿using LabColorPickerAndClock;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,13 @@ namespace TestControlApp
         public MainWindow()
         {
             InitializeComponent();
+            someRectangle.Fill = new SolidColorBrush(colorPicker.Color);
+        }
+
+        private void colorPicker_ColorChanged(object sender, ColorChangedEventArgs e)
+        {            
+            if (someRectangle != null)
+                someRectangle.Fill = new SolidColorBrush(e.Color); // If color of colorPicker changed, then fill the random rectangle into new color
         }
     }
 }

@@ -19,8 +19,11 @@ namespace LabColorPickerAndClock
     /// <summary>
     /// Interaction logic for ColorPicker.xaml
     /// </summary>
-    public partial class ColorPicker : UserControl
+    public partial class ColorPicker : UserControl, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        public event ColorChangedEventHandler ColorChanged;
+
         public Color Color
         {
             get
@@ -36,8 +39,6 @@ namespace LabColorPickerAndClock
                 OnColorChanged();
             }
         }
-
-        public event ColorChangedEventHandler ColorChanged;
 
         public InputType InputType
         {
@@ -60,6 +61,12 @@ namespace LabColorPickerAndClock
         protected virtual void OnColorChanged()
         {
             ColorChanged?.Invoke(this, new ColorChangedEventArgs(Color));
+            OnPropertyChanged("Color");
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private void RadioButtonDec_Checked(object sender, RoutedEventArgs e)
@@ -77,5 +84,6 @@ namespace LabColorPickerAndClock
             RecColorElem.Fill = new SolidColorBrush(Color);
             OnColorChanged();
         }
+
     }
 }
