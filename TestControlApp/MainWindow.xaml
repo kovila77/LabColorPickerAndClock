@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestControlApp"
         xmlns:LabColorPickerAndClock="clr-namespace:LabColorPickerAndClock;assembly=LabColorPickerAndClock" x:Class="TestControlApp.MainWindow"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+    xmlns:MyNamespace="clr-namespace:CustomClock;assembly=CustomClock"    
+    mc:Ignorable="d"
+        Title="MainWindow" Height="887.238" Width="1207.438">
     <!--<Window.DataContext>
         <local1:MainWindowViewModel/>
     </Window.DataContext>-->
@@ -15,6 +16,7 @@
             <LabColorPickerAndClock:ColorPicker x:Name="colorPicker" Color="#FFBD8B8B" ColorChanged="colorPicker_ColorChanged"/>
             <!--Some rectangle to check change of color-->
             <Rectangle Fill="#FFBD8B8B" x:Name="someRectangle" Height="100" Width="100"/>
+            <MyNamespace:CustomClock Width="200" Height="200" />
         </StackPanel>
     </Grid>
 </Window>

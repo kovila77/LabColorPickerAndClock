@@ -95,6 +95,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomClock\CustomClock.csproj">
+      <Project>{600b3b60-87f7-4d8a-a60d-a5cd44c569b5}</Project>
+      <Name>CustomClock</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LabColorPickerAndClock\LabColorPicker.csproj">
       <Project>{B9DB04DE-9061-4E24-9711-DB7B8E0A7434}</Project>
       <Name>LabColorPicker</Name>
