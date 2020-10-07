@@ -16,7 +16,7 @@
             <LabColorPickerAndClock:ColorPicker x:Name="colorPicker" Color="#FFBD8B8B" ColorChanged="colorPicker_ColorChanged"/>
             <!--Some rectangle to check change of color-->
             <Rectangle Fill="#FFBD8B8B" x:Name="someRectangle" Height="100" Width="100"/>
-            <MyNamespace:CustomClock Width="200" Height="200" />
+            <MyNamespace:CustomClock Width="400" Height="400"/>
         </StackPanel>
     </Grid>
 </Window>
