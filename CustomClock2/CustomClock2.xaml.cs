@@ -20,37 +20,29 @@ namespace CustomClock2
     /// Interaction logic for CustomClock2.xaml
     /// </summary>
     public partial class CustomClock2 : UserControl
-    {
-        
-        /// <summary>
-        /// Time that clock have without UTC
-        /// </summary>
-        public DateTime Time { get; set; } = DateTimeOffset.UtcNow.DateTime;
-
+    {    
         /// <summary>
         /// UTC offset
         /// </summary>
         public TimeSpan UtcOffset { get; set; } = DateTimeOffset.Now.Offset;
 
-        /// <summary>
-        /// True if you need update time using DateTime.Now. False if you need auto increment (without sync!)
-        /// </summary>
-        public bool UseEveryTimeDateTimeNow { get; set; } = true;
 
         private readonly DispatcherTimer _dispatcherTimer = new DispatcherTimer();
 
-        private RotateTransform rotateTransformSecond = new RotateTransform(0);
-        private RotateTransform rotateTransformMinute = new RotateTransform(0);
-        private RotateTransform rotateTransformHour = new RotateTransform(0);
+        private RotateTransform _rotateTransformSecond = new RotateTransform(0);
+        private RotateTransform _rotateTransformMinute = new RotateTransform(0);
+        private RotateTransform _rotateTransformHour = new RotateTransform(0);
 
         public CustomClock2()
         {
             InitializeComponent();
+
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             _dispatcherTimer.Tick += _dispatcherTimer_Tick;
             _dispatcherTimer.Start();
-            rotateTransformSecond.CenterX = rotateTransformMinute.CenterX = rotateTransformHour.CenterX = 50;
-            rotateTransformSecond.CenterY = rotateTransformMinute.CenterY = rotateTransformHour.CenterY = 50;
+
+            _rotateTransformSecond.CenterX = _rotateTransformMinute.CenterX = _rotateTransformHour.CenterX = 50;
+            _rotateTransformSecond.CenterY = _rotateTransformMinute.CenterY = _rotateTransformHour.CenterY = 50;
         }
 
         ~CustomClock2()
@@ -60,26 +52,17 @@ namespace CustomClock2
 
         private void _dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            DateTime dateTime;
-            if (UseEveryTimeDateTimeNow)
-            {
-                dateTime = DateTimeOffset.UtcNow.DateTime.Add(UtcOffset);
-            }
-            else
-            {
-                Time = Time.AddSeconds(1);
-                dateTime = Time.Add(UtcOffset);
-            }
+            DateTime dateTime = DateTimeOffset.UtcNow.DateTime.Add(UtcOffset);
 
             // Computing angles
-            rotateTransformSecond.Angle = dateTime.Second * 6;
-            rotateTransformMinute.Angle = (dateTime.Minute + dateTime.Second / 60f) * 6f;
-            rotateTransformHour.Angle = (dateTime.Hour + (dateTime.Minute + dateTime.Second / 60f) / 60f) * 30f;
+            _rotateTransformSecond.Angle = dateTime.Second * 6;
+            _rotateTransformMinute.Angle = (dateTime.Minute + dateTime.Second / 60f) * 6f;
+            _rotateTransformHour.Angle = (dateTime.Hour + (dateTime.Minute + dateTime.Second / 60f) / 60f) * 30f;
 
             // Rotate hands
-            MinuteHand.RenderTransform = rotateTransformMinute;
-            SecondHand.RenderTransform = rotateTransformSecond;
-            HourHand.RenderTransform = rotateTransformHour;
+            MinuteHand.RenderTransform = _rotateTransformMinute;
+            SecondHand.RenderTransform = _rotateTransformSecond;
+            HourHand.RenderTransform = _rotateTransformHour;
         }
     }
 }

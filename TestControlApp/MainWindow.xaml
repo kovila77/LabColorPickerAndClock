@@ -38,7 +38,7 @@
                     </StackPanel>
                     
                     <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
-                        <MyNamespace2:CustomClock2 Width="200" Height="200" UseEveryTimeDateTimeNow="False"/>
+                        <MyNamespace2:CustomClock2 Width="200" Height="200" />
                         <MyNamespace2:CustomClock2 Width="200" Height="200" />
                     </StackPanel>
                     

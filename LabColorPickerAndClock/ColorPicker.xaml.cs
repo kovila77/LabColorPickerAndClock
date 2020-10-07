@@ -35,9 +35,9 @@ namespace LabColorPickerAndClock
             }
             set
             {
-                ttb0.Text = value.R.ToString();
-                ttb1.Text = value.G.ToString();
-                ttb2.Text = value.B.ToString();
+                ttb0.Value = value.R;
+                ttb1.Value = value.G;
+                ttb2.Value = value.B;
                 RecColorElem.Fill = new SolidColorBrush(Color);
                 OnColorChanged();
             }

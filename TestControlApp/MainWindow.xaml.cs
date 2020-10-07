@@ -22,6 +22,8 @@ namespace TestControlApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Random rnd = new Random();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -34,10 +36,11 @@ namespace TestControlApp
                 someRectangle.Fill = new SolidColorBrush(e.Color); // If color of colorPicker changed, then fill the random rectangle into new color
         }
 
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Color randomColor = Color.FromRgb((byte)rnd.Next(256), (byte)rnd.Next(256), (byte)rnd.Next(256));
+            //Color randomColor = Color.FromRgb(0, 100, 0);
+            colorPicker.Color = randomColor;
         }
     }
 }
