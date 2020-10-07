@@ -22,8 +22,9 @@ namespace CustomClock2
     public partial class CustomClock2 : UserControl
     {
         private readonly DispatcherTimer _dispatcherTimer = new DispatcherTimer();
-        public DateTimeOffset Time { get; set; }
+        public DateTime Time { get; set; } = DateTimeOffset.UtcNow.DateTime;
 
+        public TimeSpan UtcOffset { get; set; } = DateTimeOffset.Now.Offset;
 
         RotateTransform rotateTransformSecond = new RotateTransform(0);
         RotateTransform rotateTransformMinute = new RotateTransform(0);
@@ -35,21 +36,32 @@ namespace CustomClock2
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             _dispatcherTimer.Tick += _dispatcherTimer_Tick;
             _dispatcherTimer.Start();
-            Time = DateTime.Now;
             rotateTransformSecond.CenterX = rotateTransformMinute.CenterX = rotateTransformHour.CenterX = 50;
             rotateTransformSecond.CenterY = rotateTransformMinute.CenterY = rotateTransformHour.CenterY = 50;
         }
 
         private void _dispatcherTimer_Tick(object sender, EventArgs e)
         {
+            //Time = Time.AddSeconds(1);
+            //rotateTransformSecond.Angle = Time.Second * 6;
+            //SecondHand.RenderTransform = rotateTransformSecond;
+
+            //rotateTransformMinute.Angle = Time.Minute * 6;
+            //MinuteHand.RenderTransform = rotateTransformMinute;
+
+            //rotateTransformHour.Angle = Time.Hour % 12 * 30;
+            //HourHand.RenderTransform = rotateTransformHour;
+
             Time = Time.AddSeconds(1);
-            rotateTransformSecond.Angle = Time.UtcDateTime.Second * 6;
+
+            DateTime dateTime = Time.Add(UtcOffset);
+            rotateTransformSecond.Angle = dateTime.Second * 6;
             SecondHand.RenderTransform = rotateTransformSecond;
 
-            rotateTransformMinute.Angle = Time.UtcDateTime.Minute * 6;
+            rotateTransformMinute.Angle = (dateTime.Minute + dateTime.Second / 60f) * 6f;
             MinuteHand.RenderTransform = rotateTransformMinute;
 
-            rotateTransformHour.Angle = Time.UtcDateTime.Hour % 12 * 30;
+            rotateTransformHour.Angle = (dateTime.Hour + (dateTime.Minute + dateTime.Second / 60f) / 60f) * 30f;
             HourHand.RenderTransform = rotateTransformHour;
         }
     }

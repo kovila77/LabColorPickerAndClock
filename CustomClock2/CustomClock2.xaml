@@ -7,8 +7,8 @@
              mc:Ignorable="d" Height="886" Width="711">
     <Grid>
         <Viewbox>
-            <Grid>
-                <Ellipse Width="100" Height="100" StrokeThickness="1" Stroke="Gray">
+            <Canvas Width="100" Height="100">
+                <Ellipse Width="100" Height="100" StrokeThickness="1.01" Stroke="Gray">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                             <GradientStop Color="White" Offset="0"/>
@@ -16,22 +16,30 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Ellipse Width="96" Height="96" StrokeThickness="1" Stroke="Gray">
+                <Ellipse Width="96" Height="96" Canvas.Left="2" Canvas.Top="2" StrokeThickness="1.1" Stroke="Gray">
                     <Ellipse.Fill>
                         <SolidColorBrush Color="LightGray"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Ellipse Width="80" Height="80" StrokeThickness="10" StrokeDashArray="0.1 1.737" Stroke="Gray">
+                <Ellipse Width="94" Height="94" Canvas.Left="3" Canvas.Top="3" StrokeThickness="1.5">
+                    <Ellipse.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="LightGray" Offset="0.6"/>
+                            <GradientStop Color="#FF999999" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+                <Ellipse Width="80" Height="80" Canvas.Left="10" Canvas.Top="10" StrokeThickness="10" StrokeDashArray="0.1 1.737" Stroke="Gray">
                     <Ellipse.RenderTransform>
                         <RotateTransform CenterX="40" CenterY="40" Angle="-1.1"/>
                     </Ellipse.RenderTransform>
                 </Ellipse>
-                <Ellipse Width="80" Height="80" StrokeThickness="1" StrokeDashArray="1 3.147" Stroke="Gray">
+                <Ellipse Width="80" Height="80" Canvas.Left="10" Canvas.Top="10" StrokeThickness="1" StrokeDashArray="1 3.147" Stroke="Gray">
                     <Ellipse.RenderTransform>
                         <RotateTransform CenterX="40" CenterY="40" Angle="-1.0"/>
                     </Ellipse.RenderTransform>
                 </Ellipse>
-                <Ellipse Width="8" Height="8">
+                <Ellipse Width="6" Height="6" Canvas.Left="47" Canvas.Top="47">
                     <Ellipse.Fill >
                         <SolidColorBrush Color="#FF555555"/>
                     </Ellipse.Fill>
@@ -40,7 +48,7 @@
                 <Line Name="HourHand" X1="50" Y1="50" X2="50" Y2="32" Stroke="#FF555555" StrokeThickness="2"/>
                 <Line Name="MinuteHand" X1="50" Y1="50" X2="50" Y2="18" Stroke="#FF555555" StrokeThickness="1.3"/>
                 <Line Name="SecondHand" X1="50" Y1="50" X2="50" Y2="10" Stroke="#FF555555" StrokeThickness="0.8"/>
-            </Grid>
+            </Canvas>
         </Viewbox>
     </Grid>
 </UserControl>

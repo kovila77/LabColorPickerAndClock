@@ -8,16 +8,40 @@
     xmlns:MyNamespace="clr-namespace:CustomClock;assembly=CustomClock"    
     xmlns:MyNamespace2="clr-namespace:CustomClock2;assembly=CustomClock2"    
     mc:Ignorable="d"
-        Title="MainWindow" Height="887.238" Width="1207.438">
-    <!--<Window.DataContext>
-        <local1:MainWindowViewModel/>
-    </Window.DataContext>-->
+        Title="MainWindow" Height="939.738" Width="1112.938">
     <Grid>
         <StackPanel Orientation="Vertical">
             <LabColorPickerAndClock:ColorPicker x:Name="colorPicker" Color="#FFBD8B8B" ColorChanged="colorPicker_ColorChanged"/>
             <!--Some rectangle to check change of color-->
             <Rectangle Fill="#FFBD8B8B" x:Name="someRectangle" Height="100" Width="100"/>
-            <MyNamespace2:CustomClock2 Width="200" Height="400" />
+            <Viewbox>
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center">
+                        <MyNamespace2:CustomClock2  Width="100" Height="100" UtcOffset="-3:0:0"/>
+                        <MyNamespace2:CustomClock2  Width="100" Height="100" UtcOffset="-3:0:0"/>
+                        <MyNamespace2:CustomClock2  Width="100" Height="100" UtcOffset="-3:0:0"/>
+                        <MyNamespace2:CustomClock2  Width="100" Height="100" UtcOffset="-3:0:0"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+                        <MyNamespace2:CustomClock2 Width="200" Height="200" />
+                        <MyNamespace2:CustomClock2 Width="200" Height="200" />
+                    </StackPanel>
+                    <MyNamespace2:CustomClock2 Grid.Row="0" Grid.Column="2" Width="400" Height="400" UtcOffset="5:45:0"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Center">UTC -3:00</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Center">UTC +5:00</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="2" TextAlignment="Center">UTC +5:45</TextBlock>
+                </Grid>
+            </Viewbox>
         </StackPanel>
     </Grid>
 </Window>
