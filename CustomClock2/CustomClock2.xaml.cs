@@ -20,7 +20,7 @@ namespace CustomClock2
     /// Interaction logic for CustomClock2.xaml
     /// </summary>
     public partial class CustomClock2 : UserControl
-    {    
+    {
         /// <summary>
         /// UTC offset
         /// </summary>
@@ -41,8 +41,12 @@ namespace CustomClock2
             _dispatcherTimer.Tick += _dispatcherTimer_Tick;
             _dispatcherTimer.Start();
 
-            _rotateTransformSecond.CenterX = _rotateTransformMinute.CenterX = _rotateTransformHour.CenterX = 50;
-            _rotateTransformSecond.CenterY = _rotateTransformMinute.CenterY = _rotateTransformHour.CenterY = 50;
+            _rotateTransformSecond.CenterX = 1;
+            _rotateTransformMinute.CenterX = 2;
+            _rotateTransformHour.CenterX = 3;
+            _rotateTransformSecond.CenterY = 80;
+            _rotateTransformMinute.CenterY = 64;
+            _rotateTransformHour.CenterY = 36;
         }
 
         ~CustomClock2()
