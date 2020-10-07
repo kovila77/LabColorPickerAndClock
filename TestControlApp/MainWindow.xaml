@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:TestControlApp"
         xmlns:LabColorPickerAndClock="clr-namespace:LabColorPickerAndClock;assembly=LabColorPickerAndClock" x:Class="TestControlApp.MainWindow"
     xmlns:MyNamespace="clr-namespace:CustomClock;assembly=CustomClock"    
+    xmlns:MyNamespace2="clr-namespace:CustomClock2;assembly=CustomClock2"    
     mc:Ignorable="d"
         Title="MainWindow" Height="887.238" Width="1207.438">
     <!--<Window.DataContext>
@@ -16,7 +17,7 @@
             <LabColorPickerAndClock:ColorPicker x:Name="colorPicker" Color="#FFBD8B8B" ColorChanged="colorPicker_ColorChanged"/>
             <!--Some rectangle to check change of color-->
             <Rectangle Fill="#FFBD8B8B" x:Name="someRectangle" Height="100" Width="100"/>
-            <MyNamespace:CustomClock Width="200" Height="400"/>
+            <MyNamespace2:CustomClock2 Width="200" Height="400" />
         </StackPanel>
     </Grid>
 </Window>

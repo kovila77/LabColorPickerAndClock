@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestControlApp", "TestContr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomClock", "CustomClock\CustomClock.csproj", "{600B3B60-87F7-4D8A-A60D-A5CD44C569B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomClock2", "CustomClock2\CustomClock2.csproj", "{5CCF78E8-E236-45CD-AF93-68C996446308}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{600B3B60-87F7-4D8A-A60D-A5CD44C569B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{600B3B60-87F7-4D8A-A60D-A5CD44C569B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{600B3B60-87F7-4D8A-A60D-A5CD44C569B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CCF78E8-E236-45CD-AF93-68C996446308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CCF78E8-E236-45CD-AF93-68C996446308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CCF78E8-E236-45CD-AF93-68C996446308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CCF78E8-E236-45CD-AF93-68C996446308}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
