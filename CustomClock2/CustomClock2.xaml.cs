@@ -21,14 +21,27 @@ namespace CustomClock2
     /// </summary>
     public partial class CustomClock2 : UserControl
     {
-        private readonly DispatcherTimer _dispatcherTimer = new DispatcherTimer();
+        
+        /// <summary>
+        /// Time that clock have without UTC
+        /// </summary>
         public DateTime Time { get; set; } = DateTimeOffset.UtcNow.DateTime;
 
+        /// <summary>
+        /// UTC offset
+        /// </summary>
         public TimeSpan UtcOffset { get; set; } = DateTimeOffset.Now.Offset;
 
-        RotateTransform rotateTransformSecond = new RotateTransform(0);
-        RotateTransform rotateTransformMinute = new RotateTransform(0);
-        RotateTransform rotateTransformHour = new RotateTransform(0);
+        /// <summary>
+        /// True if you need update time using DateTime.Now. False if you need auto increment (without sync!)
+        /// </summary>
+        public bool UseEveryTimeDateTimeNow { get; set; } = true;
+
+        private readonly DispatcherTimer _dispatcherTimer = new DispatcherTimer();
+
+        private RotateTransform rotateTransformSecond = new RotateTransform(0);
+        private RotateTransform rotateTransformMinute = new RotateTransform(0);
+        private RotateTransform rotateTransformHour = new RotateTransform(0);
 
         public CustomClock2()
         {
@@ -40,28 +53,32 @@ namespace CustomClock2
             rotateTransformSecond.CenterY = rotateTransformMinute.CenterY = rotateTransformHour.CenterY = 50;
         }
 
+        ~CustomClock2()
+        {
+            _dispatcherTimer.Tick -= _dispatcherTimer_Tick;
+        }
+
         private void _dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            //Time = Time.AddSeconds(1);
-            //rotateTransformSecond.Angle = Time.Second * 6;
-            //SecondHand.RenderTransform = rotateTransformSecond;
+            DateTime dateTime;
+            if (UseEveryTimeDateTimeNow)
+            {
+                dateTime = DateTimeOffset.UtcNow.DateTime.Add(UtcOffset);
+            }
+            else
+            {
+                Time = Time.AddSeconds(1);
+                dateTime = Time.Add(UtcOffset);
+            }
 
-            //rotateTransformMinute.Angle = Time.Minute * 6;
-            //MinuteHand.RenderTransform = rotateTransformMinute;
-
-            //rotateTransformHour.Angle = Time.Hour % 12 * 30;
-            //HourHand.RenderTransform = rotateTransformHour;
-
-            Time = Time.AddSeconds(1);
-
-            DateTime dateTime = Time.Add(UtcOffset);
+            // Computing angles
             rotateTransformSecond.Angle = dateTime.Second * 6;
-            SecondHand.RenderTransform = rotateTransformSecond;
-
             rotateTransformMinute.Angle = (dateTime.Minute + dateTime.Second / 60f) * 6f;
-            MinuteHand.RenderTransform = rotateTransformMinute;
-
             rotateTransformHour.Angle = (dateTime.Hour + (dateTime.Minute + dateTime.Second / 60f) / 60f) * 30f;
+
+            // Rotate hands
+            MinuteHand.RenderTransform = rotateTransformMinute;
+            SecondHand.RenderTransform = rotateTransformSecond;
             HourHand.RenderTransform = rotateTransformHour;
         }
     }
