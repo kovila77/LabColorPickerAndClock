@@ -12,7 +12,7 @@ namespace LabColorPickerAndClock
 {
     public class ToneTextBox : TextBox
     {
-        private const string AllovedSymbolsHex = "0123456789abcdef";
+        private const string AllovedSymbolsHex = "0123456789abcdefABCDEF";
         private InputType _inputType = InputType.Dec;
 
         /// <summary>
