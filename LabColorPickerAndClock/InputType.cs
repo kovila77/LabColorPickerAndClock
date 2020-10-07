@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace LabColorPickerAndClock
 {
+    /// <summary>
+    /// Type of input int values
+    /// </summary>
     public enum InputType
     {
         Dec,

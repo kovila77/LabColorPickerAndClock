@@ -34,7 +34,8 @@ namespace TestControlApp
                 someRectangle.Fill = new SolidColorBrush(e.Color); // If color of colorPicker changed, then fill the random rectangle into new color
         }
 
-        private void CustomClock2_Loaded(object sender, RoutedEventArgs e)
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

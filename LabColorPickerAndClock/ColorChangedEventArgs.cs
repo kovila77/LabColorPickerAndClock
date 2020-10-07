@@ -19,6 +19,7 @@ namespace LabColorPickerAndClock
             this._color = newColor;
         }
 
+        // Prohibit crating args without Color
         private ColorChangedEventArgs() { }
     }
 }
