@@ -14,7 +14,7 @@
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <LabColorPickerAndClock:ColorPicker x:Name="colorPicker" Color="#FFBD8B8B" ColorChanged="colorPicker_ColorChanged"/>
-                    <Button Click="Button_Click" Width="200" Height="100" Content="Make random color"/>
+                    <Button Click="Button_Click" Width="200" Height="100" Content="Make random color" Margin="10"/>
                 </StackPanel>
                 <!--Some rectangle to check change of color-->
                 <Rectangle Fill="#FFBD8B8B" x:Name="someRectangle" Height="100" Width="100"/>

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LabColorPickerAndClock"
              mc:Ignorable="d" Height="120" Width="245">
     <Grid>
-        <Rectangle Fill="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"></Rectangle>
+        <Rectangle Fill="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" StrokeThickness="1" Stroke="Gray"></Rectangle>
         <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
