@@ -31,9 +31,13 @@ namespace TestControlApp
         }
 
         private void colorPicker_ColorChanged(object sender, ColorChangedEventArgs e)
-        {            
+        {
             if (someRectangle != null)
                 someRectangle.Fill = new SolidColorBrush(e.Color); // If color of colorPicker changed, then fill the random rectangle into new color
+            if (!(colorPicker2 == null || colorPicker == null))
+                colorPicker2.Color = colorPicker.Color;
+            if (tBlock != null)
+                tBlock.Text = e.Color.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,6 +45,15 @@ namespace TestControlApp
             Color randomColor = Color.FromRgb((byte)rnd.Next(256), (byte)rnd.Next(256), (byte)rnd.Next(256));
             //Color randomColor = Color.FromRgb(0, 100, 0);
             colorPicker.Color = randomColor;
+
+        }
+
+        private void colorPicker2_ColorChanged(object sender, ColorChangedEventArgs e)
+        {
+            if (!(colorPicker2 == null || colorPicker == null))
+                colorPicker.Color = colorPicker2.Color;
+            if (tBlock != null)
+                tBlock.Text = e.Color.ToString();
         }
     }
 }

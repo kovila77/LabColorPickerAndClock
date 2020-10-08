@@ -14,10 +14,14 @@
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <LabColorPickerAndClock:ColorPicker x:Name="colorPicker" Color="#FFBD8B8B" ColorChanged="colorPicker_ColorChanged"/>
-                    <Button Click="Button_Click" Width="200" Height="100" Content="Make random color" Margin="10"/>
+                    <Button Click="Button_Click"  Width="200" Height="100" Content="Make random color" Margin="10"/>
+                    <LabColorPickerAndClock:ColorPicker x:Name="colorPicker2" Color="#FFBD8B8B" ColorChanged="colorPicker2_ColorChanged"/>
                 </StackPanel>
                 <!--Some rectangle to check change of color-->
-                <Rectangle Fill="#FFBD8B8B" x:Name="someRectangle" Height="100" Width="100"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Rectangle Fill="#FFBD8B8B" x:Name="someRectangle" Height="100" Width="100"/>
+                    <TextBlock x:Name="tBlock"></TextBlock>
+                </StackPanel>
                 <Viewbox>
                     <Grid Margin="10">
                         <Grid.ColumnDefinitions>

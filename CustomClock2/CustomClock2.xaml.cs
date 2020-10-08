@@ -60,8 +60,8 @@ namespace CustomClock2
 
             // Computing angles
             _rotateTransformSecond.Angle = dateTime.Second * 6;
-            _rotateTransformMinute.Angle = (dateTime.Minute + dateTime.Second / 60f) * 6f;
-            _rotateTransformHour.Angle = (dateTime.Hour + (dateTime.Minute + dateTime.Second / 60f) / 60f) * 30f;
+            _rotateTransformMinute.Angle = (dateTime.Minute + dateTime.Second / 60d) * 6d;
+            _rotateTransformHour.Angle = (dateTime.Hour + (dateTime.Minute + dateTime.Second / 60d) / 60d) * 30d;
 
             // Rotate hands
             MinuteHand.RenderTransform = _rotateTransformMinute;

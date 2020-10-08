@@ -35,11 +35,14 @@ namespace LabColorPickerAndClock
             }
             set
             {
-                ttb0.Value = value.R;
-                ttb1.Value = value.G;
-                ttb2.Value = value.B;
-                RecColorElem.Fill = new SolidColorBrush(Color);
-                OnColorChanged();
+                if (ttb0.Value != value.R || ttb1.Value != value.G || ttb2.Value != value.B)
+                {
+                    ttb0.Value = value.R;
+                    ttb1.Value = value.G;
+                    ttb2.Value = value.B;
+                    RecColorElem.Fill = new SolidColorBrush(Color);
+                    OnColorChanged();
+                }
             }
         }
 
